@@ -1,0 +1,112 @@
+1. find <dir> -name *~ -delete
+   - delete recursively all *~ files within <dir>
+
+* Nano
+
+- M-A :: Mark text starting from the cursor position
+- M-6 :: Copy the curren line and store it in the cutbuffer
+- ^U :: Paste
+- ^K :: Cut the current line and store it in the cutbuffer
+
+
+- M-U :: Undo the last operation
+- M-E :: Redo the last undone operation
+
+- ^\ (M-R) ::  Replace a string or a regular expression
+- ^W :: Search forward for a string or a regular expression
+- ^Q :: Search backward for a string or a regular expression
+- M-W :: Repeat the last search
+
+- M-- :: Scroll up one line without scrolling the cursor
+- M-+ :: Scroll down one line without scrolling the cursor
+
+- M-/ :: Go to the first line of the file
+- M-\ :: Go to the last line of the file
+
+- ^T: : Invoke the spell checker, if available
+
+- ^C :: Display the position of the cursor
+- ^_ (M-G) :: Go to line and column number
+
+** Buffer
+- M-< :: Switch to the previous file buffer
+- M-> :: Switch to the next file buffer
+
+* Emacs
+** Programacion
+- M-A :: retroceder por parrafos de codigo
+- M-E :: avanzar por parrafos de codigo
+- M-x hs-minor-mode :: para esconder y mostrar bloques de codigo
+  + C-c @ C-h :: esconder
+  + C-c @ C-s :: mostrar
+  + C-c @ C-c :: esconder o mostrar el bloque actual
+- M-x which-function-mode :: modo menor para mostrar el nombre de la funcion actual
+- C-M-k :: kill la expresion balanceada de adelante
+- C-x C-q :: hacer el buffer acutal de solo lectura
+- C-x C-r :: abrir un archivo como solo de lectura
+
+** Window
+- C-M-v :: Scroll el proximo window, al que saltaria con =C-x o=
+- C-x 4 b BUFNAME <RET> :: seleccionar buffer BUFNAME en otro window
+- C-x 4 C-o BUFNAME <RET> :: Mostrar BUFNAME in algun window, sin
+     seleccionarlo
+- C-x 4 f FILENAME <RET> :: Visitar FILENAME y seleccionar su buffer
+     en otro window
+- C-x 4 d DIRECTORY <RET> :: Seleccionar un buffer Dired para
+     DIRECTORY en otro window
+- C-x 4 r FILENAME <RET> :: Visitar archivo FILENAME read-only y
+     seleccionar su buffer en otro window.
+- C-x ^ :: hacer mas alto el window seleccionado
+- C-x } :: hacer mas ancho el window seleccionado
+- C-x { :: hacer mas angosto el window seleccionado
+- C-x - :: Reduzca esta ventana si su búfer no necesita tantas líneas
+- C-x + :: Haga que todas las ventanas tengan la misma altura
+     Make all windows the same height (‘balance-windows’).
+
+** Frame
+- C-x 5 2 :: Crear un nuevo frame
+- C-x 5 b BUFNAME <RET> :: Seleccionar buffer BUFNAME en otro frame
+- C-x 5 f FILENAME <RET> :: Visitar archivo FILENAME y seleccionarlo
+     en otro frame
+- C-x 5 d DIRECTORY <RET> :: Seleccionar un buffer Dired para
+     DIRECTORY en otro frame
+- C-x 5 r FILENAME <RET> :: Visitar archivo FILENAME read-only y
+     seleccionar su buffer en otro window.
+- C-x 5 0 :: Eliminar frame seleccinado. 
+- C-z :: Minimizar el frame Emacs seleccionado
+- C-x 5 o :: Seleccionar otro frame, y levantarlo. Si repites este
+             comando, ciclo a travez de todos los frames en su terminal
+- C-x 5 1 :: Eliminar todos los frames en la actual terminal, excepto
+             este seleccionado.
+- M-<F10> :: alternar el estado de maximizacion del actual
+             frame. Cuando un frame es maximizado, llena la pantalla.
+- <F11> :: alternar modo full-screen para el actual frame
+
+** Busquedas
+- M-s . :: (codigo) Inicie una búsqueda incremental de símbolo hacia
+           adelante con el símbolo encontrado cerca del punto agregado
+           inicialmente a la cadena de búsqueda.
+- M-s _ :: (codigo) Si la búsqueda incremental está activa, cambie el
+           modo de búsqueda de símbolos. De lo contrario, comience una
+           búsqueda de símbolo de avance incremental
+- M-s w :: (palabra) Si la búsqueda incremental está activa, cambie el
+           modo de búsqueda de palabras; de lo contrario, comience una
+           búsqueda progresiva de palabras hacia adelante.
+
+** Projectile
+el primer paso para que funcione usando git con =git init=
+
+Para ignorar un archivo/carpeta para un proyecto en particular tu
+puedes crear un archivo =.projectile= en la raiz del proyecto y
+agregar las rutas a ignorar con el prefijo =-=, algo como
+#+BEGIN_EXAMPLE
+-/carpeta-a-ignorar
+#+END_EXAMPLE
+
+** Remplazos
+- \(\w+\) -> \,(upcase \1) :: mediante =(C-M %)= converte palabras a
+     mayusculas
+* fin
+# Local Variables:
+# mode: org
+# End:

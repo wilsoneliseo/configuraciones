@@ -1,0 +1,86 @@
+Es importante conocer estos detalles en lo que respecta a la creacion
+de archivos bash:
+
+- Comando break :: El comando break permite interrumpir un bucle, cuando
+un bucle llega a una instrucción break, el script continua después del
+done del mismo bucle.
+
+- Comando break :: El comando break permite interrumpir un bucle,
+                   cuando un bucle llega a una instrucción break, el
+                   script continua después del done del mismo bucle.
+
+- Comando continue :: El comando continue nos va permitir saltar
+     lineas de una iteración y pasar directamente a la siguiente.
+
+- Comando true y false :: El comando true simplemente devuelve un 1,
+     mientras que el comando false un 0. Mediante estos comandos es
+     posible realizar bucles infinitos, en los cuales la única manera
+     de salir es mediante el comando break o mediante la instrucción
+     exit.
+
+Tanto los condicionales como los bucles utilizan condiciones para
+determinar como actuar o cuando terminar, estas condiciones las
+tenemos que determinar nosotros. Para esta tarea es conveniente
+conocer los siguientes conceptos:
+
+* Comparación de cadenas alfanumericas
+
+|------------------+-------------------------------------------|
+| Operador         | Verdad ( valor TRUE )  si                 |
+|------------------+-------------------------------------------|
+| caena1=cadena2   | cadena1 es igual a cadena2                |
+| cadena1!=cadena2 | cadena es diferente a cadena2             |
+| cadena1<cadena2  | cadena1 es menos que cadena2              |
+| cadena1>cadena2  | cadena1 es mayor que cadena2              |
+| -n cadena1       | cadena1 no es nula (longitud mayor que 0) |
+| -z cadena1       | cadena1 tiene un valor nulo (longitud 0)  |
+|------------------+-------------------------------------------|
+
+
+* Comparación de valores numéricos
+
+|---------------+--------------+-----------------------------|
+| Operador      | C equiv.     | TRUE  si                    |
+|---------------+--------------+-----------------------------|
+| varx -lt vary | varx < vary  | varx menor que vary         |
+| varx -le vary | varx <= vary | varx menos o igual que vary |
+| varx -eq vary | varx == vary | varx igual que vary         |
+| varx -ge vary | varx >= vary | mayor o igual que vary      |
+| varx -gt vary | varx > vary  | varx mayor que vary         |
+| varx -ne vary | varx != vary | varx diferente que vary     |
+|---------------+--------------+-----------------------------|
+
+* Comparación de atributo de fichero
+
+|-----------------------+-----------------------------------------------------|
+| Operador              | TRUE  si                                            |
+|-----------------------+-----------------------------------------------------|
+| -d fichero            | Fichero existe y es un directorio                   |
+| -e fichero            | Fichero existe                                      |
+| -f fichero            | Fichero existe y es un fichero regular              |
+|                       | (no un directorio, u otro tipo de fichero especial) |
+| -r fichero            | Tienes permiso de lectura en fichero                |
+| -s fichero            | Fichero existe y no esta vació                      |
+| -w fichero            | Tienes permiso de escritura en fichero              |
+| -x fichero            | Tienes permiso de ejecución en fichero              |
+|                       | (o de búsqueda si es un directorio)                 |
+| -O fichero            | Eres el dueño del fichero                           |
+| -G fichero            | El grupo del fichero es igual al tuyo               |
+| fichero1 -nt fichero2 | Fichero1 es más reciente que fichero2               |
+| fichero1 -ot fichero2 | Fichero1 es más antiguo que fichero2                |
+|-----------------------+-----------------------------------------------------|
+
+* Algunas variables especiales
+
+- $0 :: The name of the Bash script.
+- $1 :: $9 - The first 9 arguments to the Bash script.
+- $# :: How many arguments were passed to the Bash script.
+- $@ :: All the arguments supplied to the Bash script.
+- $? :: The exit status of the most recently run process.
+- $$ :: The process ID of the current script.
+- $USER :: The username of the user running the script.
+- $HOSTNAME :: The hostname of the machine the script is running on.
+- $SECONDS :: The number of seconds since the script was started.
+- $RANDOM :: Returns a different random number each time is it referred to.
+- $LINENO :: Returns the current line number in the Bash script.
+

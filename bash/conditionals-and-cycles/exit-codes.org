@@ -1,0 +1,46 @@
+#+TITLE: Códigos de salida y como usarlos en scripts
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
+#+OPTIONS: html-preamble:t html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+#+HTML_HEAD:
+#+HTML_HEAD_EXTRA:
+#+HTML_LINK_HOME:
+#+HTML_LINK_UP:
+#+HTML_MATHJAX:
+#+INFOJS_OPT:
+#+LATEX_HEADER:
+
+* Usando codigos de retorno
+
+#+BEGIN_SRC sh
+  #!/bin/bash
+
+  touch /root/test 2> /dev/null
+
+  # $? es una variable especial que guarda el codigo de salida del
+  # ultimo comando ejecutado
+
+  if [ $? -eq 0 ]
+  then
+      echo "Archivo creado exitosamente"
+      exit 0
+  else
+  # para imprimir por stderr usar: >&2
+      echo "Puede que no se haya creado el archivo" >&2
+      exit 1
+  fi
+
+#+END_SRC
+
+#+RESULTS:
+
+* fuente
+http://bencane.com/2014/09/02/understanding-exit-codes-and-how-to-use-them-in-bash-scripts/
+
+
+# Local Variables:
+# eval: (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp) (sh . t))))
+# End:

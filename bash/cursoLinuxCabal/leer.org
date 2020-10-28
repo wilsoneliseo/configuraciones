@@ -1,0 +1,18 @@
+#+TITLE:     leer.org
+#+AUTHOR:    Wilson S. Tubín
+#+EMAIL:     wilsoneliseogt@gmail.com
+#+DATE:      2017-06-15 jue
+#+LANGUAGE:  es
+
+* contenidos de esta carpeta
+  Esta carpeta contiene un curso que es para principiantes en Bash,
+  desarrollado por Richard Couture.
+
+  El curso incluye ejemplos en la forma de scripts autosuficientes en
+  Bash, mismos que puedes correr sin mayor problema. Además, se
+  incluye una explicación; en la cual se habla de los detalles y la
+  sintaxis utilizada para que, así, puedas aprender bash mientras
+  transcribes.
+
+* enlace del curso
+  http://wiki.cabal.mx/wiki/Curso_de_Programaci%C3%B3n_en_Bash
