@@ -1,8 +1,5 @@
-1. find <dir> -name *~ -delete
-   - delete recursively all *~ files within <dir>
-
 * Nano
-
+- ^S :: Save file without prompting
 - M-A :: Mark text starting from the cursor position
 - M-6 :: Copy the curren line and store it in the cutbuffer
 - ^U :: Paste
@@ -28,11 +25,35 @@
 - ^C :: Display the position of the cursor
 - ^_ (M-G) :: Go to line and column number
 
+- M-3 :: Comment/uncomment the current line (or marked lines)
+- ^] :: Try and complete the current word
+
+- M-$ :: Soft wrapping of overlong lines enable/disable
+
+- M-Z :: Suspension enable/disable
+
+
 ** Buffer
 - M-< :: Switch to the previous file buffer
 - M-> :: Switch to the next file buffer
 
 * Emacs
+- C-o :: para dejar espacio abajo, sin mover el punto actual
+
+** Org mode
+- C-c ' :: editor de formulas
+- C-c ? :: mostrar referencia de actual celda en el minibuffer
+- C-c } :: dibujar referencias @ROW$Col de la tabla
+- C-c C-q :: agregar tag a un headline
+- C-c C-c :: interfaz en el minibuffer para editar tags
+  + <TAB> :: autocompletado de tags
+  + <RET> :: aceptar la modificacion del conjunto
+  + C-g :: abortar sin instalar los cambios
+  + q :: Si 'q' no esta asignado a un tag, aborta como 'C-g'
+  + ! :: Desactive los grupos de etiquetas mutuamente
+         excluyentes. Utilice esto para (como excepción) asignar
+         varias etiquetas de dicho grupo.
+
 ** Programacion
 - M-A :: retroceder por parrafos de codigo
 - M-E :: avanzar por parrafos de codigo
@@ -103,9 +124,66 @@ agregar las rutas a ignorar con el prefijo =-=, algo como
 -/carpeta-a-ignorar
 #+END_EXAMPLE
 
+- C-c p a :: Switch between files with the same name but different
+             extensions. Lo he usado para cambiar entre headers (.h) y
+             sus implementaciones (.c)
+- C-c p 4 a :: lo mismo que el anterior pero abre en otro buffer
+- C-c p C-h :: listar los comandos de projectile
+- M-x projectile-purge-file-from-cache :: purge an individual file
+     from the cache
+- M-x projectile-purge-dir-from-cache :: purge an entire directory
+     from the cache
+- M-x projectile-compile-project :: agregar el comando para
+     compilar. Por default esta ubicado en /build/ en la raiz del
+     proyecto
+
 ** Remplazos
 - \(\w+\) -> \,(upcase \1) :: mediante =(C-M %)= converte palabras a
      mayusculas
+** Ido
+- C-j :: tomar literalmente el texto cuando C-x C-f sin tomar sugerencias
+- C-r :: poner el ultimo elemento al principio de la lista
+- M-k :: Eliminar el directorio actual del historial de directorios
+- C-x C-f/C-f :: Fallback to non-Ido version of current command.
+- M-o :: Cycle to previous file in work file history.
+- C-M-o	:: Cycle to next file in work file history.
+- C-d :: abrir carpeta especifica con Dired mode
+- M-p :: Ir a carpeta previa en el historial de directorios
+- M-n :: Ir a carpeta next en el historial de directorios
+- M-s :: Buscar para el archivo en el historial de directorios
+- M-f :: Prompt for a file and use find to locate it.
+- M-d :: Prompt for a directory and use find to locate it.
+- M-m :: Prompt for a directory to create in current directory.
+- C-t :: Toggle regexp searching.
+- C-p :: Toggle between substring and prefix matching.
+- C-c :: Toggle case-sensitive searching of file names.
+
+
+* Ubuntu
+** Archivos de configuracion
+- /etc/bash.bashrc :: algunas variables de entorno (oracle) estan aqui
+- /etc/profile :: aqui variables de entorno de java y PS1 para el prompt
+
+** Comandos
+- ls Screenshot*|sed 's/\(.\).\(.*\)/mv & \1\2/'|sh :: renombrar
+     archivos, que comienzan con Screenshot, quitandole el segundo
+     caracter.
+  + & :: es el nombre del archivo original
+  + tip :: hay dos formas de escribir ER's en Sed: Basico (default) y
+           Extendido (opcion -E); la unica diferencia es el
+           comportamiento de ? + {} y |. En el basico estos caracteres
+           no son especiales y para que lo sean se debe escapar \. En
+           el extendido, por el contrario, estos son especiales y para
+           indicar que son literales se debe escapar \
+- rename -n 's/(.).(.*)/$1$2/' Screenshot* :: lo mismo que
+     anterior. Observar que para hacer referencia a algun match se usa
+     $1 en vez de \1 como en sed. Quitar la opcion -n para ejecutarlo.
+- rename -n 'our $i; s/.*/sprintf("_%03d.png", $i++)/e' *.png :: renombrar
+     todos los archivos png numerando de 0 hasta el numero de archivos
+     actuales
+- find <dir> -name *~ -delete :: delete recursively all *~ files
+     within <dir>
+
 * fin
 # Local Variables:
 # mode: org
