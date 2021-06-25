@@ -45,6 +45,8 @@
              comenzó la búsqueda
 - C-x C-o :: Eliminar saltos de linea alrededor de la linea actual
 - ESQ-^ :: Unir dos lineas quitando el salto de linea entre ambos
+- C-_ :: Deshacer
+- C-g C-_ :: Rehacer
 
 ** Resaltado Interactivo
 El modo RESALTAR CAMBIOS es un modo menor que "resalta" las partes del
