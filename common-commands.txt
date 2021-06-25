@@ -39,6 +39,38 @@
 
 * Emacs
 - C-o :: para dejar espacio abajo, sin mover el punto actual
+- C-x C-x :: (exchange-point-and-mark) Por ejemplo, haz una C-s y
+             busca algo hacia adelante. Presione RET para salir de la
+             búsqueda, luego C-x C-x para marcar todo desde donde
+             comenzó la búsqueda
+- C-x C-o :: Eliminar saltos de linea alrededor de la linea actual
+- ESQ-^ :: Unir dos lineas quitando el salto de linea entre ambos
+
+** Resaltado Interactivo
+El modo RESALTAR CAMBIOS es un modo menor que "resalta" las partes del
+búfer que se cambiaron más recientemente, dándole a ese texto una cara
+diferente. Para habilitar o deshabilitar el modo de cambios de
+resaltado, use 'M-x highlight-changes-mode'
+
+- M-s h r REGEXP <RET> FACE <RET> :: Resaltar texto que coincide con
+     REGEXP usando la cara FACE. Mientras estamos en el prompt se
+     puede usar =M-n= y =M-p= para ciclar a travez de todas las caras
+- M-s h u REGEXP <RET> :: Des-resaltar REGEXP. Mostrará la expresión
+     regular agregada más recientemente; use 'M-n' para mostrar la
+     siguiente expresión anterior y 'M-p' para seleccionar la
+     siguiente expresión más nueva
+- M-s h l REGEXP <RET> FACE <RET> :: Resalte líneas completas que
+     contengan una coincidencia para REGEXP
+- M-s h p PHRASE <RET> FACE <RET> :: Resalte coincidencias de PHRASE,
+     usando face FACE
+- M-s h . :: Resalte el símbolo que se encuentra cerca del punto,
+             usando la siguiente cara disponible
+- M-s h w :: Inserte todos los pares de expresiones regulares/caras
+             resaltados actuales en el búfer en el punto, con
+             delimitadores de comentarios para evitar que cambien su
+             programa
+- M-s h f :: Extraer pares de regexp/face de los
+             comentarios en el búfer actual
 
 ** Org mode
 - C-c ' :: editor de formulas
@@ -133,9 +165,13 @@ agregar las rutas a ignorar con el prefijo =-=, algo como
      from the cache
 - M-x projectile-purge-dir-from-cache :: purge an entire directory
      from the cache
-- M-x projectile-compile-project :: agregar el comando para
-     compilar. Por default esta ubicado en /build/ en la raiz del
-     proyecto
+- C-c p c :: ejecuta =projectile-compile-project=. Agregar el comando
+             para compilar. Por default esta ubicado en /build/ en la
+             raiz del proyecto. En teclars es
+- C-c p m :: projectile-commander deja escojer entre varios comandos,
+             por ejemplo si se escoje =v= muestra informacion sobre el
+             control de versiones del proyecto (git).
+- C-c p v :: Abre un modo para control de versiones para el proyecto
 
 ** Remplazos
 - \(\w+\) -> \,(upcase \1) :: mediante =(C-M %)= converte palabras a
@@ -158,6 +194,20 @@ agregar las rutas a ignorar con el prefijo =-=, algo como
 - C-p :: Toggle between substring and prefix matching.
 - C-c :: Toggle case-sensitive searching of file names.
 
+** Dired
+- j :: salta al archivo preguntado en el minibuffer
+- C-o :: Abrir archivo actual en otra ventana sin mover el cursor de
+         dired
+- % m REGEXP <RET> :: marcar todos los que coincidan con REGEXP
+- C-u k :: en el header del subdirectorio, remueve al directorio
+           listado
+- C-u C-<SPC> :: retorna a la posicion previa en el buffer Dired
+- w :: pone los nombres de de los archivos marcados (or next N) dentro
+       del kill ring separados por espacios. Con un prefijo argumento
+       cero, copia las rutas absolutas de los archivos marcados. Con
+       'C-u' como argumento prefijo, usa los nombres relativos del
+       directorio default del buffer Dired
+- C-x u :: rehacer las marcas anteriores. Tambien se puede hacer con C-/
 
 * Ubuntu
 ** Archivos de configuracion

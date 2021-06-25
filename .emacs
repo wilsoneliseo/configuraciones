@@ -96,7 +96,7 @@
 (ido-mode t)
 
 ;; Iluminar los parentesis y las llaves por parejas:
-(show-paren-mode 1)
+;; (show-paren-mode 1)
 
 ;; actualizar archivo cuando se modifica con otro programa
 (global-auto-revert-mode t)
@@ -225,47 +225,12 @@
 ;;   $m MACROS
 ;; ============================================================
 
-;; esta funcion para cambiar la fecha. Cadena -02 es mes. Cadena -14 es dia.
-(fset 'sjf
-      (lambda (&optional arg) "Keyboard macro."  (interactive "p") (kmacro-exec-ring-item (quote ("\346\344-10\344-21" 0 "%d")) arg)))
-;; esta funcion para copiar el TOTAL hacia saldo. Usa caracter ' p/ubicarse
-(fset 'sjs
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([33554451 84 79 84 65 76 tab 3 24 134217847 18 39 tab tab 3 24 25 3 16] 0 "%d")) arg)))
-;; convinacion de sjf y sjs
+;; Debemos ubicarnos en el header grado 1 sin expandir. Pega el registro 't' (deberia tener la fecha), compia el TOTAL hacia el saldo y finalmente se ubica en el primer producto
 (fset 'sj
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 115 106 102 return 134217848 115 106 115 return] 0 "%d")) arg)))
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([tab 14 1 11 24 114 105 116 19 84 79 84 65 76 return tab 3 24 134217847 18 39 return tab tab 3 24 25 3 16 14 14 14 14 14 tab tab 3 32 tab 48 tab 45 S-iso-lefttab S-iso-lefttab] 0 "%d")) arg)))
 ;; este inserta linea y se posiciona en cant.
 (fset 'nl
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 134217830 S-return tab] 0 "%d")) arg)))
-
-
-
-(fset 'wmachines
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([25 134217832 3 124 M-right M-right S-iso-lefttab S-iso-lefttab M-S-left] 0 "%d")) arg)))
-(fset 'westado
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([4 134217820 134217830 134217820 67108896 19 40 2 backspace 32 61 32 105 114 6 32 19 59 backspace 44 return 4 19 32 return 2 2 32 6 67108896 19 91 2 6 backspace return 5 backspace 134217820 backspace return 14] 0 "%d")) arg)))
-(fset 'wdesplazamientos
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([67108896 134217830 134217847 19 40 return 2 67108896 19 41 6 2 21 24 114 115 116 24 111 167772179 94 25 return 5 24 114 105 116 3 16 67108914 24 111 S-iso-lefttab 14 134217830 134217826] 0 "%d")) arg)))
-(fset 'wh
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([19 60 116 114 62 return 19 61 return 134217739 34 115 116 105 99 107 121] 0 "%d")) arg)))
-(fset 'wreducciones
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([19 46 44 return 5 32 35 82] 0 "%d")) arg)))
-(fset 'wcero
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 16 3 16 14 4 134217820 6 67108896 19 91 6 2 backspace return return 5 backspace 134217820 backspace backspace 1 5 return 16 134217832 201326629 92 93 59 32 92 91 return 17 49 50 return return 33 3 16 14 14 11] 0 "%d")) arg)))
-(fset 'warreglar
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 16 134217832 201326629 92 93 17 49 50 return 92 124 92 93 59 32 92 91 return 17 49 50 return return 33] 0 "%d")) arg)))
-(fset 'wsin
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([return return 16 16 42 42 32 115 105 110 return 24 114 105 116 3 16 134217832 201326629 17 49 50 return 17 49 50 return return 17 49 50 return return 33] 0 "%d")) arg)))
-(fset 'wrd
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([return 16 42 42 32 100 101 108 134217832 201326629 114 92 40 91 48 45 57 5 43 92 41 return 82 92 49 return 33 3 16 134217832 201326629 92 40 115 92 124 32 92 41 92 40 91 48 45 57 5 43 92 41 return 68 92 49 backspace 50 return 33 18 97 99 99 return 3 32 82 48 3 16 11 11] 0 "%d")) arg)))
-(fset 'wcero0
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 16 3 16 14 4 134217820 return 6 67108896 19 123 6 2 backspace return return 5 backspace 134217820 backspace return 112 24 117 16 67108896 5 201326629 59 32 return 17 49 50 return return 33 3 16 14 14 14 11] 0 "%d")) arg)))
-(fset 'westado0
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([4 134217820 134217830 67108896 19 40 2 backspace 32 61 32 6 32 19 44 return 134217820 19 32 2 134217820 2 32 6 67108896 19 123 2 6 backspace return 5 backspace 134217820 backspace return 14] 0 "%d")) arg)))
-(fset 'warreglar0
-      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([3 16 134217832 201326629 59 32 return 17 49 50 return return 33] 0 "%d")) arg)))
-(fset 'wreducciones0
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217747 92 46 36 return 32 35 82] 0 "%d")) arg)))
 
 
 ;; activar sh para evaluacion de bloques de codigo
