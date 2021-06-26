@@ -236,6 +236,20 @@ agregar las rutas a ignorar con el prefijo =-=, algo como
 - find <dir> -name *~ -delete :: delete recursively all *~ files
      within <dir>
 
+* Git
+** Como Agregar mas archivos a commit previo
+Si ya le commit y quiero agregar mas archivos modificados o nuevos
+antes de hacer push.
+
+#+BEGIN_SRC sh
+$git add nuevo-archivo
+$git commit --amend
+#+END_SRC
+
+Luego se puede hacer el push normalmente. Se abrira nano, si estamos
+usando la consola, para poder editar el mensaje y descripcion del commit
+
+
 * fin
 # Local Variables:
 # mode: org
