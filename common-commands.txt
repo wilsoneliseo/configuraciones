@@ -47,6 +47,9 @@
 - ESQ-^ :: Unir dos lineas quitando el salto de linea entre ambos
 - C-_ :: Deshacer
 - C-g C-_ :: Rehacer
+- C-u N :: valor de argumento prefijo de un comando. Repite el comando
+           N veces. Para dar valores negativos se escribe: =C-- N
+           <COMANDO>=
 
 ** Resaltado Interactivo
 El modo RESALTAR CAMBIOS es un modo menor que "resalta" las partes del
@@ -111,7 +114,8 @@ resaltado, use 'M-x highlight-changes-mode'
      DIRECTORY en otro window
 - C-x 4 r FILENAME <RET> :: Visitar archivo FILENAME read-only y
      seleccionar su buffer en otro window.
-- C-x ^ :: hacer mas alto el window seleccionado
+- C-x ^ :: hacer mas alto el window seleccionado. Con un prefijo
+           negativo reduce la altura
 - C-x } :: hacer mas ancho el window seleccionado
 - C-x { :: hacer mas angosto el window seleccionado
 - C-x - :: Reduzca esta ventana si su búfer no necesita tantas líneas
